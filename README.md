@@ -10,16 +10,20 @@ This documentation set provides a comprehensive system for automatically generat
 jira-prompts/
 ├── README.md                          # This file
 ├── CHANGELOG.md                       # Version history
+├── .gitignore                         # Git ignore rules (excludes process docs)
 ├── docs/                              # Documentation
-│   ├── EPIC_Description_Generation_Prompt.md
-│   ├── USAGE_EXAMPLES.md
-│   ├── GIT_REPO_SUMMARY.md
-│   ├── SETUP_COMPLETE.md
-│   ├── PUSH_TO_REMOTES_GUIDE.md
-│   └── REPOSITORY_STATUS.md
-└── examples/                          # HTML examples
-    └── *.html (6 example files)
+│   ├── EPIC_Description_Generation_Prompt.md  # Complete prompt specification
+│   └── USAGE_EXAMPLES.md                      # Practical examples and scenarios
+└── examples/                          # HTML review file examples
+    ├── STK-119963_EPIC_Description_Review.html
+    ├── STK-122640_Short_Description_Review.html
+    ├── STK-123409_Short_Description_Review.html
+    ├── STK-124663_EPIC_Description_Review.html
+    ├── STK-124663_Short_Description_Review.html
+    └── STK-125561_Short_Description_Review.html
 ```
+
+> **Note:** Process documentation files (e.g., `*_GUIDE.md`, `*_STATUS.md`, `*_COMPLETE.md`) are kept local only and not committed to the repository per `.gitignore` rules.
 
 ## Documentation Files
 
@@ -295,14 +299,14 @@ For issues or suggestions:
 
 ---
 
-## File Structure
+## Additional Documentation Files
 
-```
-/Users/vivekjain/.cursor/Test/
-├── EPIC_DESCRIPTION_README.md              (This file - Overview)
-├── EPIC_Description_Generation_Prompt.md   (Complete prompt specification)
-└── EPIC_Description_Usage_Examples.md      (Practical examples and scenarios)
-```
+For additional context, some related documentation may exist in the local workspace:
+- **EPIC_DESCRIPTION_README.md**: Overview and quick reference
+- **EPIC_Business_Value_Analysis_Prompt.md**: Business value extraction methodology
+- **optimized_jira_summary_prompt.md**: Jira summary generation
+
+These files complement the main documentation in this repository.
 
 ## Quick Links
 
