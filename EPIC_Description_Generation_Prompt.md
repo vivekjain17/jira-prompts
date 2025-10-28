@@ -665,6 +665,33 @@ When processing multiple EPICs:
 - Ask user for more details or alternative access methods
 - Document which sources couldn't be accessed
 
+## Jira Custom Fields Reference
+
+**⚠️ CRITICAL: Use these EXACT custom field IDs for STK project:**
+
+| Field Name | Custom Field ID | Usage |
+|------------|----------------|-------|
+| **Story Points** | `cf[10003]` | Story points on EPICs and tickets |
+| Team | `cf[12900]` | Team assignment (e.g., "Ecomm Demand") |
+| Parent Link | `cf[21401]` | Links Initiative to EPIC, Theme to Initiative |
+| Epic Link | `cf[11800]` | Links Story/Bug/Task to EPIC |
+| Target End | `cf[25801]` | Expected completion date |
+| Beta Date | `cf[20000]` | AB test start date |
+| Flagged | `cf[10001]` | "Yes" = crucial business value |
+
+**Common Mistakes to Avoid:**
+- ❌ `customfield_10016` - This is NOT story points (wrong field!)
+- ❌ Summing story points from child tickets - Read from EPIC directly
+- ✅ `cf[10003]` - This is the CORRECT story points field
+
+### Getting Story Points for EPICs:
+```jql
+project = STK AND issuetype = Epic AND cf[10003] IS NOT EMPTY
+fields: ["key", "summary", "customfield_10003", "priority", "status"]
+```
+
+**Note:** Always use `customfield_10003` in the fields array, but `cf[10003]` in JQL queries.
+
 ## Query Examples
 
 ### Check for Stories in EPIC:
@@ -800,6 +827,156 @@ key = "STK-XXXXX"
 ⚠️ **ALWAYS maintain consistency across multiple EPICs**
 ⚠️ **ALWAYS check Story/Bug/Task COMMENTS for GitHub PR links** (not just descriptions)
 ⚠️ **ALWAYS include copy button in HTML output** for easy Jira pasting
+⚠️ **ALWAYS use cf[10003] for story points** (NOT customfield_10016)
+
+---
+
+## Ensuring Consistency Across Runs
+
+### 1. Follow the Exact Sequence
+Always search sources in this order:
+1. Wiki pages (mentioned in EPIC)
+2. Figma files (attachments)
+3. Stories (descriptions + comments for GitHub PRs)
+4. GitHub PRs (from Story comments)
+5. Confluence (search by title + EPIC ID)
+6. Other sources (attachments, images)
+
+**Why:** Ensures the same sources are checked every time, in the same priority order.
+
+### 2. Use Consistent Jira Queries
+
+**For EPIC Details:**
+```python
+jql = f"key = {EPIC_ID}"
+fields = ["summary", "description", "status", "priority", "assignee", 
+          "customfield_12900", "customfield_21401", "customfield_25801", 
+          "customfield_20000", "customfield_10001", "customfield_10003"]
+minimizeOutput = True
+```
+
+**For Stories in EPIC:**
+```python
+jql = f'"Epic Link" = {EPIC_ID}'
+fields = ["key", "summary", "description", "issuetype"]
+minimizeOutput = True
+maxResults = 50  # Increase if needed
+```
+
+**For Comments (GitHub PRs):**
+```python
+mcp_Corp_Jira_get_jira_comments(issueIdOrKey = STORY_KEY)
+# Parse for: https://git.corp.adobe.com/AdobeStock/*/pull/*
+```
+
+### 3. Use Consistent Confluence Searches
+
+**Search 1: By Title**
+```python
+query = f"{EPIC_TITLE_KEYWORDS}"
+space_key = "adobestock"
+limit = 5
+```
+
+**Search 2: By EPIC ID**
+```python
+query = f"{EPIC_ID}"
+space_key = "adobestock"
+limit = 5
+```
+
+### 4. Template Adherence
+
+**Detailed Mode - ALWAYS include these sections:**
+- h3. Business Value
+- h3. Success Metrics
+- h3. Context
+- h3. Implementation Scope
+- h3. Key Documents (if available)
+- h3. Related Work (if applicable)
+
+**Short Mode - ALWAYS include these sections:**
+- **Business Value**
+- **Success Metrics**
+- **Scope**
+- **Context**
+- **References**
+
+### 5. Information Quality Indicators
+
+**High Confidence (80-100%):**
+- Found wiki pages with requirements
+- Found multiple Stories with detailed descriptions
+- Found GitHub PRs with implementation details
+- Found Figma files or design docs
+
+**Medium Confidence (50-79%):**
+- Found some Stories but limited detail
+- Found Confluence pages but not specific PRD
+- Missing one or more key sources
+
+**Low Confidence (<50%):**
+- Only found basic EPIC description
+- No wiki, Figma, or detailed Stories
+- Limited context available
+
+### 6. Handling Edge Cases
+
+**EPIC has parent/child EPICs:**
+- Note the relationship in Context section
+- Reference parent EPIC ID
+- List child EPICs if applicable
+
+**EPIC is part of a program:**
+- Note the program initiative
+- Reference program EPIC
+- Explain how this EPIC fits into larger picture
+
+**EPIC has multiple phases:**
+- Note the phase/sprint information
+- Clarify what was delivered in this EPIC
+- Reference follow-up work if applicable
+
+**EPIC is blocked or dependent:**
+- Note dependencies in Context
+- Explain why blocked if status indicates it
+- Reference blocking EPICs
+
+### 7. Quality Assurance Checklist
+
+Before creating HTML output, verify:
+- [ ] All 6 sources were checked
+- [ ] Correct custom fields used (cf[10003] for story points)
+- [ ] Current description was read and preserved if needed
+- [ ] Template structure followed (detailed or short mode)
+- [ ] No assumed/fabricated data
+- [ ] Sources are documented in HTML
+- [ ] Copy button included in HTML
+- [ ] Confidence level indicated
+
+### 8. Troubleshooting Common Issues
+
+**Issue: "Story points showing wrong numbers"**
+- ✅ Fix: Use `cf[10003]` in JQL and `customfield_10003` in fields array
+- ❌ Don't: Try to sum from child tickets
+
+**Issue: "Can't find GitHub PRs"**
+- ✅ Fix: Check Story/Bug/Task **comments**, not descriptions
+- ✅ Look for bot user: "Adobe Stock Jira account to add PR links in comments"
+
+**Issue: "Wiki pages not showing up"**
+- ✅ Fix: Check "mentioned in" section of EPIC ticket
+- ✅ Also search Confluence by EPIC ID and title keywords
+
+**Issue: "Descriptions are inconsistent"**
+- ✅ Fix: Follow the exact sequence and template every time
+- ✅ Use the same JQL queries and field lists
+- ✅ Always use `minimizeOutput: true` for cleaner results
+
+**Issue: "Can't determine if description is empty or has data"**
+- Empty = null, blank, or only section headers with no content
+- Has data = actual sentences, bullet points, metrics, specific info
+- When in doubt: Append with separator rather than replace
 
 ---
 
@@ -814,6 +991,15 @@ Review this EPIC to understand the level of detail and professionalism expected,
 ---
 
 ## Version History
+
+**v2.0 - October 17, 2025**
+- ✅ Fixed: Story points field corrected to cf[10003] (was incorrectly using customfield_10016)
+- ✅ Added: Jira Custom Fields Reference section with correct field IDs
+- ✅ Added: "Ensuring Consistency Across Runs" section with detailed best practices
+- ✅ Added: Troubleshooting section for common issues
+- ✅ Enhanced: GitHub PR discovery instructions (check comments, not descriptions)
+- ✅ Added: Quality assurance checklist
+- ✅ Added: Edge case handling guidelines
 
 **v1.0 - October 17, 2025**
 - Initial release with detailed and short description modes
