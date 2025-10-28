@@ -4,9 +4,26 @@
 
 This documentation set provides a comprehensive system for automatically generating professional, standardized EPIC descriptions for Adobe Stock Jira tickets by intelligently gathering information from multiple sources.
 
+## Repository Structure
+
+```
+jira-prompts/
+├── README.md                          # This file
+├── CHANGELOG.md                       # Version history
+├── docs/                              # Documentation
+│   ├── EPIC_Description_Generation_Prompt.md
+│   ├── USAGE_EXAMPLES.md
+│   ├── GIT_REPO_SUMMARY.md
+│   ├── SETUP_COMPLETE.md
+│   ├── PUSH_TO_REMOTES_GUIDE.md
+│   └── REPOSITORY_STATUS.md
+└── examples/                          # HTML examples
+    └── *.html (6 example files)
+```
+
 ## Documentation Files
 
-### 1. **EPIC_Description_Generation_Prompt.md** (Main Prompt)
+### 1. **docs/EPIC_Description_Generation_Prompt.md** (Main Prompt)
 The complete, detailed prompt that defines the entire process for EPIC description generation.
 
 **Contains:**
@@ -21,7 +38,7 @@ The complete, detailed prompt that defines the entire process for EPIC descripti
 
 **Use this when:** You need to understand the complete process or reference specific rules
 
-### 2. **EPIC_Description_Usage_Examples.md** (Practical Guide)
+### 2. **docs/USAGE_EXAMPLES.md** (Practical Guide)
 Real-world examples and scenarios showing how to use the system.
 
 **Contains:**
