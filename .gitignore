@@ -105,3 +105,24 @@ PERSONAL_NOTES.md
 TODO_PRIVATE.md
 notes/
 drafts/
+
+# ========================================
+# Process Documentation (keep local only)
+# ========================================
+# These files document what was done during automation
+# and should NOT be committed to the repository
+*_GUIDE.md
+*_STATUS.md
+*_COMPLETE.md
+*_SUMMARY.md
+*_STEPS.md
+*_REPORT.md
+*_LOG.md
+*_NOTES.md
+
+# Specific process documentation patterns
+PUSH_TO_*.md
+REPOSITORY_*.md
+SETUP_*.md
+GIT_*.md
+REPO_*.md
