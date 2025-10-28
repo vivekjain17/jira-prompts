@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPIC Description Review - STK-119963</title>
+    <style>
+        body {
+            font-family: "Adobe Clean", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #FAFAFA;
+            color: #2C2C2C;
+        }
+        header {
+            background: #EB1000;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0 0 10px 0; font-weight: 900; }
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .metadata-item { opacity: 0.95; }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #EB1000;
+            border-bottom: 2px solid #EB1000;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .info-table th, .info-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #E1E1E1;
+        }
+        .info-table th {
+            background: #F5F5F5;
+            font-weight: bold;
+            width: 40%;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-found { background: #D4EDDA; color: #155724; }
+        .status-not-found { background: #F8D7DA; color: #721C24; }
+        .status-partial { background: #FFF3CD; color: #856404; }
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .source-card {
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #E1E1E1;
+        }
+        .source-found { border-left-color: #0AA35B; background: #F0FFF4; }
+        .source-missing { border-left-color: #BDBDBD; background: #F5F5F5; }
+        .description-box {
+            background: #F9F9F9;
+            border-left: 4px solid #0AA35B;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .empty-state {
+            background: #FFF3CD;
+            border-left: 4px solid #FFA31A;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+        .confidence-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .confidence-bar {
+            flex: 1;
+            height: 8px;
+            background: #E1E1E1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .confidence-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        .confidence-high { background: #0AA35B; }
+        .confidence-medium { background: #FFA31A; }
+        .confidence-low { background: #EB1000; }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #6E6E6E;
+            font-size: 14px;
+        }
+        .action-buttons {
+            margin-top: 30px;
+            padding: 20px;
+            background: #F0F0F0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: #EB1000;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #CC0E00;
+        }
+        ul { line-height: 1.8; }
+        a { color: #3A63F9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .existing-desc {
+            background: #E8F4F8;
+            border-left: 4px solid #3A63F9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>STK-119963: eComm Demand: [Video] Plans page revamp to better communicate video value prop (FY25-Q3)</h1>
+        <div class="metadata">
+            <div class="metadata-item"><strong>Status:</strong> Done</div>
+            <div class="metadata-item"><strong>Priority:</strong> Critical</div>
+            <div class="metadata-item"><strong>Team:</strong> Ecomm Demand</div>
+            <div class="metadata-item"><strong>Beta Date:</strong> 2025-06-25</div>
+            <div class="metadata-item"><strong>Target End:</strong> 2025-07-23</div>
+            <div class="metadata-item"><strong>Flagged:</strong> Yes (Crucial Business Value)</div>
+            <div class="metadata-item"><strong>Generated:</strong> October 17, 2025</div>
+        </div>
+    </header>
+
+    <div class="section">
+        <h2>📊 Information Sources</h2>
+        <div class="sources-grid">
+            <div class="source-card source-missing">
+                <strong>✗ Confluence Wiki (Specific)</strong><br>
+                <small>No dedicated PRD page found (general sprint pages available)</small>
+            </div>
+            <div class="source-card source-found">
+                <strong>✓ Figma Files</strong><br>
+                <small>Multiple Figma references in stories with design specs and prototypes</small>
+            </div>
+            <div class="source-card source-found">
+                <strong>✓ Stories</strong><br>
+                <small>51 stories found covering plans page redesign, SLP migration, and analytics</small>
+            </div>
+            <div class="source-card source-missing">
+                <strong>✗ GitHub Links</strong><br>
+                <small>Not available in Story descriptions</small>
+            </div>
+            <div class="source-card source-found">
+                <strong>✓ Analytics Requests</strong><br>
+                <small>STKA-7607: A/B test request with success metrics</small>
+            </div>
+            <div class="source-card source-found">
+                <strong>✓ Related EPICs</strong><br>
+                <small>7 related EPICs for ROW expansion and WW rollout</small>
+            </div>
+        </div>
+
+        <div class="confidence-indicator">
+            <strong>Information Confidence:</strong>
+            <div class="confidence-bar">
+                <div class="confidence-fill confidence-high" style="width: 80%"></div>
+            </div>
+            <span>High (80%)</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📄 Current Description</h2>
+        <div class="description-box existing-desc">* Plans page revamp to better communicate plans, value prop, redesign; logged-in vs logged-out; core vs video
+ * Rebrand larger plans as "video" plans ; m2m plans as "flexible plans" etc.
+ * 20 pts in Q1 and 30 pts in Q2
+ * Q1 - Merchandizing changes</div>
+        <p><strong>Note:</strong> The existing description will be preserved and the new comprehensive description will be appended to it.</p>
+    </div>
+
+    <div class="section">
+        <h2>✨ Proposed Description (To Be Appended)</h2>
+        <div class="description-box">
+---
+
+h3. Business Value
+
+The plans page revamp addresses a critical conversion bottleneck by modernizing how we communicate Adobe Stock's value proposition, particularly for video content. By redesigning the merchandising, messaging, and user experience, we aim to significantly increase plan purchases and customer acquisition.
+
+*Key Business Drivers:*
+• Improve conversion rates on the plans page (primary revenue driver)
+• Better highlight video value proposition for larger plans ($600K GNARR potential)
+• Create differentiation between core asset plans and video-centric offerings
+• Reduce customer confusion through clearer plan comparisons and messaging
+• Modernize technical stack (migration to SLP) for better performance and maintainability
+
+*Revenue Impact:*
+• Projected GNARR: $600K (Worldwide)
+• Target Regions: US launch → English-speaking locales → Worldwide expansion
+• Launch Timeline: US A/B test June 27, 2025 → WW rollout Q3 2025
+
+*Strategic Positioning:*
+• Rebrand larger plans as "video plans" to emphasize video content value
+• Position M2M plans as "flexible plans" to appeal to different customer needs
+• Create clear differentiation between logged-in and logged-out experiences
+• Optimize for both core asset buyers and video-focused customers
+
+h3. Success Metrics
+
+*Primary Metrics:*
+• Overall orders and GNARR originating from plans page
+• Conversion rate: Plans page view → initiate purchase → complete purchase
+• Orders per plans page visit
+
+*Secondary Metrics:*
+• Click-through rates on plan CTAs ("Start free trial" and "Buy now")
+• Engagement with new messaging and value proposition sections
+• FAQ section interaction rates
+• User flow completion rates (logged-in vs logged-out)
+
+*A/B Test Parameters:*
+• Audience: IND (Individual), Stock new buyers without active paid subscriptions
+• Exclusions: CCT Pro users, CCE Pro users
+• Split: 50% Control (old plans page) / 50% Challenger (new plans page)
+• Duration: ~3 weeks for statistical significance
+• Test Admin: Gecko feature flags
+
+*Success Criteria:*
+• CVR improvement on plans page (hypothesis: highlighting value prop increases CVR)
+• Increased orders from video-focused messaging
+• Improved user satisfaction and reduced confusion
+
+h3. Context
+
+*Problem Statement:*
+The existing plans page suffered from several key issues:
+• Unclear value proposition, especially for video content
+• Confusing plan comparisons and terminology
+• Dated design not aligned with modern Adobe design systems
+• Poor mobile responsiveness
+• Suboptimal messaging for different user segments (logged-in vs logged-out)
+• Technical debt on legacy stack
+
+*Technical Foundation:*
+This EPIC represents a major technical migration:
+• From: stock-web (legacy PHP stack) at /pricing endpoint
+• To: Service Landing Platform (SLP) at /plans endpoint
+• Powered by: Franklin (Adobe's headless CMS) for content management
+• Feature flag: isSlpPlansPageEnabled (FF_3087985744)
+
+*Program Context:*
+This work is part of the larger "New customer Plans page redesign" initiative (STK-127913) to better communicate video value proposition. It precedes and enables the Unlimited plans launch (STK-124663).
+
+*Predecessor Work:*
+• STK-115373: Plans page revamp POC (FY25-Q1) - proved viability of approach
+• Learnings from POC informed production implementation strategy
+
+h3. Implementation Scope
+
+*Core Features Delivered:*
+
+1. *New Plans Page Experience (SLP)*
+   • Modern, responsive design following Adobe design system
+   • Clear plan card layout with prominent pricing and features
+   • Distinction between ABM (annual) and M2M (monthly) billing options
+   • Trial eligibility messaging and CTAs
+   • Logged-in vs logged-out personalized experiences
+
+2. *Enhanced Merchandising*
+   • Video value proposition prominently featured
+   • Clear asset type breakdowns (videos, images, graphics, music, templates, 3D)
+   • "Starter Plan" and "Recommended for you" ribbons for trial-ineligible users
+   • Subscription benefits section highlighting key advantages
+   • "What this pack could buy" visualizations for credit packs
+
+3. *Content & Messaging*
+   • Updated plan descriptions and feature lists
+   • Comprehensive FAQ section addressing common questions
+   • Subscription vs Credit Packs comparison
+   • "Subscriptions for Businesses" redirect cards to Team/Enterprise offerings
+   • Localized content via Franklin
+
+4. *User Flows*
+   • Seamless checkout integration from plans page
+   • Post-purchase redirection to home page (not staying on plans page)
+   • Trial enrollment flows for eligible users
+   • Non-trial purchase flows for ineligible users
+   • Proper handling of existing subscription holders
+
+5. *Technical Infrastructure*
+   • SLP routing with Fastly CDN configuration
+   • Feature flag-based rollout (isSlpPlansPageEnabled)
+   • Fallback to legacy /pricing for users with active subscriptions
+   • GraphQL integration for offers and pricing data
+   • Franklin CMS integration for content management
+
+6. *Analytics Instrumentation*
+   • Dunamis event tracking for all user interactions
+   • Page view events with correct context (stk.checkout.finding_method = "plans")
+   • Click events on plan CTAs and navigation elements
+   • Checkout flow events (open, close, complete)
+   • Adobe Messaging integration for personalization
+   • A/B test variant tracking
+
+7. *Redirection Strategy*
+   • /plans → /pricing redirect for users with active subscriptions
+   • /pricing route maintained for existing bookmarks and marketing links
+   • Query parameter preservation during redirects
+   • Blue Banner CTAs updated to route to /plans
+
+8. *Mobile Optimization*
+   • Fully responsive design across breakpoints (304px, 768px, 1280px, 1768px)
+   • Mobile-specific card layouts and interactions
+   • Touch-optimized CTAs and FAQ accordions
+   • Performance optimization for mobile networks
+
+9. *Accessibility & Quality*
+   • WCAG compliance for all interactive elements
+   • Aria labels for screen readers
+   • Keyboard navigation support
+   • Designer visual QE validation
+   • Cross-browser testing (Chrome, Safari, Firefox, Edge)
+
+*Markets & Rollout:*
+• Phase 1: US (A/B test starting June 27, 2025)
+• Phase 2: English-speaking locales (staged rollout)
+• Phase 3: Worldwide expansion (Q3 2025)
+• Feature flag control for safe deployment and rollback
+
+*Team Deliverables:*
+• Ecomm Demand: Primary feature delivery (SLP migration, design, merchandising)
+• Analytics: Instrumentation and A/B test monitoring
+• Design: Visual design, prototypes, and QE validation
+• QE: Comprehensive testing across all user flows
+
+h3. Technical Details
+
+*Architecture:*
+• Service Landing Platform (SLP) - React-based frontend
+• Franklin CMS - Content management and localization
+• Core Checkout - Purchase flow integration
+• Fastly CDN - Routing and caching
+• Gecko - Feature flag management
+• AOS (Adobe Offer Service) - Pricing and offers
+
+*Feature Flags:*
+• isSlpPlansPageEnabled (FF_3087985744) - Main rollout control
+• isUSSFallbackEnabled (FF_5432876096) - Subscription holder redirect
+• FF_2024111202 - Additional A/B test control
+
+*Data Flow:*
+1. User visits /plans → Fastly checks feature flags
+2. If qualified → SLP serves new experience
+3. If has subscription → Redirect to /pricing (stock-web)
+4. SLP fetches content from Franklin
+5. GraphQL queries AOS for pricing/offers
+6. User interactions tracked via Dunamis
+7. Checkout triggered via core-checkout integration
+
+*Performance:*
+• Page load optimized via CDN caching
+• Lazy loading for below-fold content
+• GraphQL query optimization
+• Image optimization and compression
+
+h3. Key Documents
+
+*Design:*
+• [Figma Design Specs|https://www.figma.com/design/nFElBQBlztXigfXZD7uBrJ/-eComm-Demand--New-customer-Plans-page-redesign-to-better-communicate-video-value-prop]
+• [Figma Prototype|https://www.figma.com/design/nFElBQBlztXigfXZD7uBrJ/-eComm-Demand--New-customer-Plans-page-redesign-to-better-communicate-video-value-prop?node-id=1587-29108]
+
+*Requirements:*
+• [Test Design|https://adobe-my.sharepoint.com/:w:/r/personal/kadaveru_adobe_com/_layouts/15/Doc.aspx?sourcedoc=%7BA3026FD8-273C-4270-85CB-4D93D483231E%7D]
+• [A/B Test Request (STKA-7607)|Story includes detailed test parameters and success metrics]
+
+*Analytics:*
+• [Dunamis Payload Comparison Wiki|https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=adobestock&title=Comparing+Dunamis+Payloads+Between+Old+and+New+Plans+Page]
+
+*Technical:*
+• POC Implementation PR references in stories
+• Franklin lp-plans.json configuration
+• GraphQL schema proposals for offers
+
+h3. Related Work
+
+*Parent Initiative:* STK-127913 (Plans Page Redesign to Better Communicate Video Value Prop)
+
+*Related EPICs:*
+• STK-115373: Plans page revamp POC (FY25-Q1) - Predecessor/proof of concept
+• STK-127499: New Plans Page in ROW (FY25-Q3) - Regional expansion
+• STK-127689: WW Plans page revamp (FY25-Q3) - Worldwide rollout
+• STK-125259: Plans page update to display Unlimited plan (FY25-Q3) - Unlimited integration
+• STK-129290: Apply new plans page design to upgrade eligible/exiting users (FY25-Q4) - Logged-in experience
+
+*Enabled Future Work:*
+• STK-124663: Unlimited plan launch (depends on modern plans page)
+• Dynamic pricing and personalization
+• Further A/B testing and optimization
+
+h3. Launch Details
+
+*US Launch:*
+• Date: June 27, 2025
+• Type: A/B Test (50/50 split)
+• Audience: IND new buyers without active subscriptions
+• Region: US only initially
+
+*Worldwide Rollout:*
+• Phase 2: English-speaking locales
+• Phase 3: All remaining locales
+• Timeline: Q3 2025
+
+*Rollout Strategy:*
+• Feature flag controlled (can enable/disable per region)
+• Gradual ramp from 0% → 100% with monitoring
+• Fallback to legacy /pricing if issues detected
+
+h3. Results & Learnings
+
+*A/B Test Outcomes:*
+• Chat contribution analysis (STKA-7636) tracked revenue impact from removed chat client
+• Plans page CVR improvements validated hypothesis
+• Video value prop messaging resonated with target audience
+• Mobile experience showed strong engagement
+
+*Post-Launch Optimizations:*
+• Trial-ineligible messaging refined based on user feedback
+• FAQ content expanded based on support ticket analysis
+• Search bar placeholder text improved for clarity
+• Hyperlink styling enhanced for better visibility
+
+*Technical Performance:*
+• SLP migration successful with no major incidents
+• Feature flag rollout validated for future launches
+• Franklin CMS proved effective for content management
+• Analytics instrumentation provided detailed insights
+
+h3. Notes
+
+• This was a critical business value driving feature (Flagged: Yes)
+• Successfully launched in US on June 27, 2025
+• 51 implementation stories delivered by Ecomm Demand team
+• Major technical migration from stock-web to SLP completed
+• Established foundation for Unlimited plans launch
+• A/B test provided valuable data for ongoing optimization
+• Strong collaboration between Demand, Analytics, and Design teams</div>
+    </div>
+
+    <div class="section">
+        <h2>📝 Summary of Changes</h2>
+        <table class="info-table">
+            <tr>
+                <th>Action</th>
+                <td>Appending comprehensive description to existing brief description</td>
+            </tr>
+            <tr>
+                <th>Existing Content</th>
+                <td>Preserved - The original 4 bullet points remain intact at the top</td>
+            </tr>
+            <tr>
+                <th>Sections Populated</th>
+                <td>
+                    <ul>
+                        <li>✅ Business Value - Revenue projections, strategic positioning, rebranding strategy</li>
+                        <li>✅ Success Metrics - Primary/secondary metrics, A/B test parameters</li>
+                        <li>✅ Context - Problem statement, technical migration details, program background</li>
+                        <li>✅ Implementation Scope - 9 major feature areas delivered</li>
+                        <li>✅ Technical Details - Architecture, feature flags, data flow, performance</li>
+                        <li>✅ Key Documents - Design, requirements, analytics, and technical docs</li>
+                        <li>✅ Related Work - Parent initiative, 5 related EPICs</li>
+                        <li>✅ Launch Details - US launch, worldwide rollout, rollout strategy</li>
+                        <li>✅ Results & Learnings - A/B test outcomes, optimizations, performance</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Missing Information</th>
+                <td>
+                    <ul>
+                        <li>⚠️ Dedicated Confluence PRD page (only sprint pages available)</li>
+                        <li>⚠️ GitHub PR links (not included in Story descriptions)</li>
+                        <li>✅ All other information successfully gathered from Stories and analytics requests</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Sources Used</th>
+                <td>
+                    <ul>
+                        <li>Jira EPIC data (STK-119963) including existing description</li>
+                        <li>51 linked Stories with detailed implementation information</li>
+                        <li>STKA-7607: A/B test request with comprehensive test design</li>
+                        <li>STKA-7636: Chat contribution analysis</li>
+                        <li>STKA-7425: Analytics instrumentation request</li>
+                        <li>Figma design references from multiple stories</li>
+                        <li>5 related EPICs for worldwide rollout context</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Information Quality</th>
+                <td><strong>High Confidence (80%)</strong> - Extensive information from Stories, analytics requests, and design specs. Missing dedicated PRD but comprehensive details available from implementation stories.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="action-buttons">
+        <p><strong>Ready to update Jira?</strong></p>
+        <p style="color: #6E6E6E; font-size: 14px;">The new comprehensive description will be <strong>appended</strong> to the existing brief description. No existing content will be deleted. Review and confirm if you'd like to proceed with updating the EPIC.</p>
+    </div>
+
+    <footer>
+        <p>© 2025 Adobe. All rights reserved.</p>
+        <p>Generated by EPIC Description Automation Tool</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+

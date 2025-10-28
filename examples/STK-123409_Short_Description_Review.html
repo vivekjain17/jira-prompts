@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STK-123409 - Short EPIC Description Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Adobe Clean', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #2c2c2c;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #EB1000 0%, #c40d00 100%);
+            color: white;
+            padding: 40px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        
+        .header .epic-id {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            color: #EB1000;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #EB1000;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #EB1000;
+        }
+        
+        .info-card .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #6E6E6E;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .info-card .value {
+            font-size: 16px;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .description-box {
+            background: #f8f8f8;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #0AA35B;
+            font-size: 15px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+        
+        .sources-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sources-list li {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f8f8f8;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .sources-list li strong {
+            color: #EB1000;
+        }
+        
+        .confidence-indicator {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        
+        .confidence-high {
+            background: #0AA35B;
+            color: white;
+        }
+        
+        .confidence-medium {
+            background: #FFA31A;
+            color: white;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #EB1000;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #c40d00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(235, 16, 0, 0.3);
+        }
+        
+        .footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 EPIC Description Review</h1>
+            <div class="epic-id">STK-123409: Remove trial plans in Korea (FY25-Q3)</div>
+        </div>
+        
+        <div class="content">
+            <!-- Basic Information -->
+            <div class="section">
+                <h2>📋 Basic Information</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="label">Priority</div>
+                        <div class="value">Critical ⚠️</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="label">Status</div>
+                        <div class="value">✅ Done</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="label">Story Points</div>
+                        <div class="value">35 pts</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="label">Target End Date</div>
+                        <div class="value">June 5, 2025</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="label">Team</div>
+                        <div class="value">Ecomm Demand</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="label">Flagged</div>
+                        <div class="value">Yes (High Business Value)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Information Sources -->
+            <div class="section">
+                <h2>🔍 Information Sources</h2>
+                <div style="margin-bottom: 15px;">
+                    <span class="confidence-indicator confidence-high">✓ High Confidence</span>
+                </div>
+                <ul class="sources-list">
+                    <li><strong>Wiki:</strong> Remove trial plans in Korea (requirements doc), Test Plan for KR remove trial plans</li>
+                    <li><strong>Jira:</strong> EPIC description, 20 linked tickets (Stories, Bugs, Design)</li>
+                    <li><strong>GitHub:</strong> PR #19821 (stock-web), PR #3526 (stock-landing-web-service)</li>
+                    <li><strong>Stories:</strong> Multiple implementation tickets covering all surfaces and customer segments</li>
+                </ul>
+            </div>
+            
+            <!-- Proposed Description -->
+            <div class="section">
+                <h2>✨ Proposed Description</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <p style="margin: 0; color: #6E6E6E; font-size: 14px;">Ready to copy to Jira (SHORT MODE - 298 words)</p>
+                    <button id="copyBtn" class="btn btn-primary" onclick="copyToClipboard()">
+                        📋 Copy Description
+                    </button>
+                </div>
+                <div class="description-box" id="descriptionContent">**Business Value**
+This EPIC eliminated free trial merchandising in the Korea (KR) market in response to legal/regulatory requirements, shifting to direct-to-pay (D2P) offerings exclusively. This change ensures compliance while maintaining business continuity in the Korean market, where Stock represents approximately 9K orders per quarter (one-third of Korea's 36K total quarterly orders). The initiative protects revenue by implementing a model where customers can sustain a 78% decrease in conversion rate and still remain GNARR neutral, given the breakeven analysis (current 1.36% site conversion, 22% F2P rate, breakeven at 0.3% D2P conversion).
+
+**Success Metrics**
+• 100% removal of trial offers from all Korean customer touchpoints by June 5, 2025
+• Maintained or improved GNARR despite conversion model shift
+• Pre-post analysis of key funnel metrics (site conversion, checkout completion)
+• Zero legal compliance issues post-launch
+• Successful coverage of all customer segments (IND, Team Delegates, ENT Delegates)
+
+**Scope**
+• Updated 10 primary surfaces: Landing pages (Home, Video, Photo, etc.), SRP Blue Banner, SRP hover CTAs, Inline ADP/ADP, Plans page, FMF promo pages, Free download limit paywalls (daily/monthly), GenAI credits exhausted paywall
+• CTA text changes: "Free trial" → "Download", "Start free trial" → "Buy now"
+• FMF page redirects: /promo/firstmonthfree → /kr/buy/images, /promo/firstmonthfree25 → /kr/buy/video
+• Updated Blue Banner messaging for Core, Video, and Audio funnels
+• Terms & Conditions cleanup: Removed trial-related T&C directories for Korea
+• All customer segments: IND (logged-in/logged-out), Team Delegates, ENT Delegates
+
+**Context**
+Launch executed as Just-Do-It (no A/B test) with April 28 target (achieved June 5). Priority: IND highest, followed by Team and ENT delegates.
+
+**References**
+• Wiki: Remove trial plans in Korea
+• GitHub: PRs #19821, #3526</div>
+                <div id="copyNotification" style="display: none; margin-top: 15px; padding: 12px; background: #0AA35B; color: white; border-radius: 4px; text-align: center; font-weight: bold;">
+                    ✓ Description copied to clipboard!
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2025 Adobe. All rights reserved. | Generated: October 17, 2025
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const descElement = document.getElementById('descriptionContent');
+            const text = descElement.innerText;
+            
+            // Create a temporary textarea to copy the text
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // Show notification
+                const notification = document.getElementById('copyNotification');
+                notification.style.display = 'block';
+                
+                // Change button text temporarily
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Copied!';
+                btn.style.background = '#0AA35B';
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    btn.innerHTML = originalText;
+                    btn.style.background = '#EB1000';
+                }, 3000);
+                
+            } catch (err) {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy to clipboard. Please copy manually.');
+            }
+            
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPIC Description Review - STK-124663</title>
+    <style>
+        body {
+            font-family: "Adobe Clean", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #FAFAFA;
+            color: #2C2C2C;
+        }
+        header {
+            background: #EB1000;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0 0 10px 0; font-weight: 900; }
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .metadata-item { opacity: 0.95; }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #EB1000;
+            border-bottom: 2px solid #EB1000;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .info-table th, .info-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #E1E1E1;
+        }
+        .info-table th {
+            background: #F5F5F5;
+            font-weight: bold;
+            width: 40%;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-found { background: #D4EDDA; color: #155724; }
+        .status-not-found { background: #F8D7DA; color: #721C24; }
+        .status-partial { background: #FFF3CD; color: #856404; }
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .source-card {
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #E1E1E1;
+        }
+        .source-found { border-left-color: #0AA35B; background: #F0FFF4; }
+        .source-missing { border-left-color: #BDBDBD; background: #F5F5F5; }
+        .description-box {
+            background: #F9F9F9;
+            border-left: 4px solid #0AA35B;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .empty-state {
+            background: #FFF3CD;
+            border-left: 4px solid #FFA31A;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+        .confidence-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .confidence-bar {
+            flex: 1;
+            height: 8px;
+            background: #E1E1E1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .confidence-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        .confidence-high { background: #0AA35B; }
+        .confidence-medium { background: #FFA31A; }
+        .confidence-low { background: #EB1000; }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #6E6E6E;
+            font-size: 14px;
+        }
+        .action-buttons {
+            margin-top: 30px;
+            padding: 20px;
+            background: #F0F0F0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: #EB1000;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #CC0E00;
+        }
+        ul { line-height: 1.8; }
+        a { color: #3A63F9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>STK-124663: eComm-Demand: [Video] IND Pro plus offer - unlimited core and videos (FY25-Q3)</h1>
+        <div class="metadata">
+            <div class="metadata-item"><strong>Status:</strong> Done</div>
+            <div class="metadata-item"><strong>Priority:</strong> Critical</div>
+            <div class="metadata-item"><strong>Team:</strong> Ecomm Demand</div>
+            <div class="metadata-item"><strong>Beta Date:</strong> 2025-08-13</div>
+            <div class="metadata-item"><strong>Flagged:</strong> Yes (Crucial Business Value)</div>
+            <div class="metadata-item"><strong>Generated:</strong> October 17, 2025</div>
+        </div>
+    </header>
+
+    <div class="section">
+        <h2>📊 Information Sources</h2>
+        <div class="sources-grid">
+            <div class="source-card source-found">
+                <strong>✓ Confluence Wiki</strong><br>
+                <small>Found 3 comprehensive pages including August 2025 Launch Rollout Plan and Stock Unlimited Plan Program Page</small>
+            </div>
+            <div class="source-card source-missing">
+                <strong>✗ Figma Files</strong><br>
+                <small>References found in stories but not directly attached to EPIC</small>
+            </div>
+            <div class="source-card source-found">
+                <strong>✓ Stories</strong><br>
+                <small>48 stories found covering implementation, testing, and deployment</small>
+            </div>
+            <div class="source-card source-missing">
+                <strong>✗ GitHub Links</strong><br>
+                <small>Not available in Story descriptions</small>
+            </div>
+            <div class="source-card source-found">
+                <strong>✓ Confluence</strong><br>
+                <small>Multiple pages found with launch details, requirements, and rollout plans</small>
+            </div>
+            <div class="source-card source-found">
+                <strong>✓ Related EPICs</strong><br>
+                <small>8 related EPICs identified for LTV, upgrade paths, and supporting features</small>
+            </div>
+        </div>
+
+        <div class="confidence-indicator">
+            <strong>Information Confidence:</strong>
+            <div class="confidence-bar">
+                <div class="confidence-fill confidence-high" style="width: 90%"></div>
+            </div>
+            <span>High (90%)</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📄 Current Description</h2>
+        <div class="empty-state">
+            <strong>⚠️ No Description Present</strong>
+            <p>This EPIC currently has no description. This is a new description creation.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✨ Proposed Description</h2>
+        <div class="description-box">
+h3. Business Value
+
+The Unlimited Ind Pro plan represents a strategic expansion of Adobe Stock's subscription offering, targeting individual professional users who require extensive access to stock assets for high-volume creative projects. This tier 4 offering addresses a critical market gap between our 40-asset plan and enterprise offerings, capturing revenue from power users while providing unprecedented value.
+
+*Key Business Drivers:*
+• Create a new premium tier capturing $600K+ GNARR (WW) from high-volume individual users
+• Establish Adobe Stock as the go-to unlimited content platform for professional creators
+• Reduce churn by providing a growth path for customers hitting asset limits
+• Generate competitive differentiation with unlimited downloads at $129.99/year pricing
+• Drive contributor engagement through expanded payout opportunities
+
+*Revenue Impact:*
+• Projected GNARR: $600K+ (Worldwide)
+• Target Markets: US, UK, CA (with FR as stretch goal)
+• Launch Date: August 13, 2025
+• Distribution: A/B Test (US) and Just-Do-It rollout (UK, CA)
+
+h3. Success Metrics
+
+*Primary Metrics:*
+• Overall orders and GNARR from unlimited plan purchases
+• Conversion rate from plans page and video funnels
+• Customer acquisition through SEM landing pages
+• Trial-to-paid conversion rates
+
+*Secondary Metrics:*
+• Average licensing per user (monitoring for abuse/fraud)
+• Customer lifetime value for unlimited subscribers
+• Upgrade rate from existing 10/25/40 plans to unlimited
+• Content diversity (ensuring usage across multiple asset types)
+
+*Monitoring Thresholds:*
+• Daily licensing cap: 1,500 assets (fraud detection)
+• Alert threshold: 500 assets/day for active monitoring
+• Quality assurance through payout pool mechanisms
+
+h3. Context
+
+*Program Background:*
+This EPIC is part of the larger Stock Unlimited Plan initiative (STK-111557) launching new pricing tiers to capture different customer segments. The tier 4 unlimited plan ($129.99) represents the premium offering in a restructured lineup that includes:
+• Tier 1.5 ($32.99-$39.99) - Small content plans
+• Tier 2/3 ($79.99) - 40 credits with flexible video entitlements  
+• Tier 4 ($129.99) - Unlimited (this EPIC)
+
+*Technical Foundation:*
+• Built on Service Landing Platform (SLP) stack
+• Feature-flag controlled rollout for safe deployment
+• Integration with Franklin for merchandising
+• Enhanced fraud detection and monitoring systems
+
+*Dependencies:*
+This work enables downstream initiatives including:
+• Tier 1.5 offer onboarding (Q4 2025)
+• Dynamic NBA recommendations (STK-129292)
+• Pause subscription MVP (STK-129291)
+• Upgrade paths and plans page updates (STK-129285, STK-129286)
+
+h3. Implementation Scope
+
+*Core Features Delivered:*
+
+1. *Unlimited Plan Merchandising*
+   • Plans page product cards with unlimited messaging
+   • Video buy-choice modal with 2 plans (unlimited + 40 ABM)
+   • Core buy-choice updates
+   • SEM landing pages for UK and CA markets
+   • Blue banner messaging in video funnels
+
+2. *Offer Onboarding*
+   • Product Arrangement (PA-2056) for unlimited plan
+   • Updated 40 ABM plan (PA-2057) with 3 videos instead of 6
+   • Updated 40 M2M plan (PA-2058) 
+   • AOS integration and pricing display
+
+3. *Entitlement & Licensing*
+   • Unlimited licensing for standard images, graphics, music, templates, 3D
+   • Unlimited video downloads (HD, 4K)
+   • Includes 2,000 Firefly generative credits
+   • Usage policy enforcement and monitoring
+
+4. *Purchase Flows*
+   • Checkout integration with unlimited offer
+   • Trial flows (where applicable)
+   • Payment processing and subscription management
+   • Post-purchase experience optimization
+
+5. *Feature Flag Architecture*
+   • isUnlimitedIndProOfferABTestEnabled (US A/B test)
+   • isIndProUnlimitedOfferRolloutEnabled (UK/CA JDI)
+   • Gecko qualifiers for audience segmentation
+   • Geographic and user-type targeting
+
+6. *Analytics & Monitoring*
+   • Dunamis instrumentation for all user journeys
+   • New Relic dashboards for performance monitoring
+   • Splunk queries for error tracking
+   • Fraud detection alerts and reporting
+   • Orders and revenue tracking dashboards
+
+7. *Legal & Compliance*
+   • Unlimited Plan Usage Policy (HelpX)
+   • Updated Terms of Service
+   • Subscription and cancellation terms mapping
+   • FAQ content for customers and contributors
+
+8. *Marketing Materials*
+   • SEM landing pages (UK: uk/royalty-free/unlimited, CA: ca/royalty-free/unlimited)
+   • Plans page FAQ updates
+   • Email campaigns (UK: 8/18, CA: 8/19)
+   • HelpX documentation updates
+   • Contributor communications and reactive FAQ
+
+*Markets & Localization:*
+• US: A/B Test rollout
+• UK: Just-Do-It (JDI) rollout  
+• CA: Just-Do-It (JDI) rollout
+• FR: Stretch goal (not confirmed for MVP)
+
+*Team Deliverables:*
+• Ecomm Demand: Primary feature delivery (merchandising, buy-choice, plans page)
+• Ecomm LTV: Post-purchase flows, upgrades, saved offers
+• Ecomm Core: Platform infrastructure, offer onboarding, checkout
+• Contributors/UTC: Payout pool, fraud detection, usage monitoring
+• Analytics: Instrumentation, dashboards, reporting
+
+*Testing & Quality:*
+• Cross-team testing completed
+• Bug bash sessions executed
+• Production Acceptance Testing (PAT) in progress
+• Cypress automation for E2E flows
+• Performance and load testing validated
+• Visual QE completed by design team
+
+h3. Launch Details
+
+*Release Date:* August 13, 2025 at 10:00 AM PST
+
+*War Room:* Teams meeting established for launch monitoring
+
+*Rollout Strategy:*
+• Stage validation: 100% feature flag enablement
+• Production ramp: Phased by geography
+• Monitoring: Real-time dashboard tracking
+• Rollback: Feature flag toggle capability
+
+*Go-Live Checklist:*
+☑ All development tickets 100% completed
+☑ No open blocker or critical bugs  
+☑ Analytics instrumentation verified
+☑ Monitoring and alerting configured
+☑ Legal team sign-off received
+☑ PMM and Marketing team approval obtained
+☑ Designer Visual QE completed
+☑ Cross-team testing validated
+☑ CSO Runbook published
+☑ Load testing and SLA validation passed
+
+h3. Key Documents
+
+*Requirements:*
+• [Test Design Document|https://adobe-my.sharepoint.com/:w:/r/personal/kadaveru_adobe_com/_layouts/15/Doc.aspx?sourcedoc=%7BA3026FD8-273C-4270-85CB-4D93D483231E%7D]
+• [Unlimited Plans Cross Team Test Plan|https://wiki.corp.adobe.com/display/adobestock/Unlimited+Plans+Cross+Team+Test+Plan]
+• [Stock Unlimited Plan: Overall Program Page|https://wiki.corp.adobe.com/display/adobestock/Stock+Unlimited+Plan%3A+Overall+Program+Page]
+
+*Design:*
+• [Figma Prototype|https://www.figma.com/proto/2WEcilg0L5rMy5ZphjM5A0/Unlimited-plans?node-id=2776-15581]
+• [Full Design File with Annotations|https://www.figma.com/design/2WEcilg0L5rMy5ZphjM5A0/Unlimited-plans?node-id=3076-11798]
+
+*Launch:*
+• [August 2025 Launch Schedule|https://adobe-my.sharepoint.com/:x:/p/kadaveru/EeV8Va7uwqdAlQJa9KjFspgBoeh-HPvwEbtQs8Q2N6w4Jw]
+• [Stock Unlimited Plan Tier 4 Launch Rollout Plan|https://wiki.corp.adobe.com/pages/viewpage.action?pageId=3563414276]
+
+*Marketing:*
+• [Campaign Messaging|https://adobe.sharepoint.com/:p:/s/AdobeStockProductMarketingTeam/]
+• [GTM-S & GTM-P|https://adobe.sharepoint.com/:p:/s/AdobeStockProductMarketingTeam/EaGcSIEkJgFBrqQ1Pg0AIbwBrZ7vfJGQFyP11EgpSPG37g]
+• [Q4 Marketing Moment|https://adobe-my.sharepoint.com/:p:/r/personal/bthakkar_adobe_com/Documents/Q4%20Marketing%20Moment-%20Post%20MAX.pptx]
+
+*Legal:*
+• [Unlimited Plan Usage Policy|http://helpx.adobe.com/stock/help/unlimited-plan-usage-policy.html]
+• [Updated Terms of Service|https://adobe.sharepoint.com/:w:/r/sites/lgr/pd/Stock%20Legal%20Collab%20Folder/]
+
+h3. Related Work
+
+*Parent Initiative:* STK-111557 (Stock Unlimited Plan Program)
+
+*Related EPICs:*
+• STK-129285: Tier 1.5 offer onboarding - upgrade paths
+• STK-129286: P0 Upgrade to Unlimited plans (plans page, banner, buy-choice)
+• STK-129292: Dynamic NBA recommendations
+• STK-129293: Supporting UCP (Unified Checkout Platform)
+• STK-129294: Support unlimited plans - fast follows & onboard 40 m2m/ABM changes
+• STK-129291: Pause subscription MVP - M2M plans
+• STK-115482: [Video] IND Pro plus offer POC (predecessor/clone source)
+• STK-119443: Support unlimited plans test (predecessor)
+
+h3. Risks & Mitigations
+
+*Identified Risks:*
+• Fraud/abuse potential with unlimited licensing → Mitigated through 1,500/day hard cap and 500/day alert threshold
+• Contributor payout sustainability → Addressed through payout pool mechanisms
+• Technical complexity of feature flag rollout → Extensive testing and staged deployment
+• Market readiness across multiple geos → Focused MVP on US/UK/CA, FR as stretch
+
+*Rollback Plan:*
+• Feature flags can be toggled off immediately
+• No database migrations required for rollback
+• Monitoring dashboards provide early warning signals
+
+h3. Notes
+
+• This was a critical business value driving feature (Flagged: Yes)
+• Launch completed successfully on August 13, 2025
+• 48 implementation stories delivered by Ecomm Demand team
+• Strong cross-functional collaboration across Demand, LTV, Core, and Contributors teams
+• Feature sets foundation for future tier expansion (1.5, 0, 00 creator plans)
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📝 Summary of Changes</h2>
+        <table class="info-table">
+            <tr>
+                <th>Action</th>
+                <td>Creating new description (EPIC currently has no description)</td>
+            </tr>
+            <tr>
+                <th>Sections Populated</th>
+                <td>
+                    <ul>
+                        <li>✅ Business Value - Comprehensive revenue projections and strategic value</li>
+                        <li>✅ Success Metrics - Primary and secondary KPIs with monitoring thresholds</li>
+                        <li>✅ Context - Program background, dependencies, and technical foundation</li>
+                        <li>✅ Implementation Scope - Detailed feature breakdown across 8 major areas</li>
+                        <li>✅ Launch Details - Release date, rollout strategy, and go-live checklist</li>
+                        <li>✅ Key Documents - Links to designs, requirements, and marketing materials</li>
+                        <li>✅ Related Work - Parent initiative and 8 related EPICs</li>
+                        <li>✅ Risks & Mitigations - Identified risks with mitigation strategies</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Missing Information</th>
+                <td>
+                    <ul>
+                        <li>⚠️ Direct Figma file attachment (references exist in stories)</li>
+                        <li>⚠️ GitHub PR links (not included in Story descriptions)</li>
+                        <li>✅ All other information successfully gathered from Confluence and Jira</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Sources Used</th>
+                <td>
+                    <ul>
+                        <li>Jira EPIC data (STK-124663)</li>
+                        <li>48 linked Stories with implementation details</li>
+                        <li>Confluence: Stock Unlimited Plan Tier 4 August Launch Rollout Plan</li>
+                        <li>Confluence: Stock Unlimited Plan: Overall Program Page</li>
+                        <li>8 related EPICs for context and dependencies</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Information Quality</th>
+                <td><strong>High Confidence (90%)</strong> - Extensive documentation available from multiple authoritative sources including launch rollout plans, program pages, and detailed implementation stories.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="action-buttons">
+        <p><strong>Ready to update Jira?</strong></p>
+        <p style="color: #6E6E6E; font-size: 14px;">Review the proposed description above and confirm if you'd like to proceed with updating the EPIC.</p>
+    </div>
+
+    <footer>
+        <p>© 2025 Adobe. All rights reserved.</p>
+        <p>Generated by EPIC Description Automation Tool</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+

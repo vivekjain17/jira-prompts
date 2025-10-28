@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STK-124663 - Short EPIC Description Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Adobe Clean', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #2c2c2c;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #EB1000 0%, #c20d00 100%);
+            color: white;
+            padding: 40px;
+            border-bottom: 4px solid #a00a00;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+        
+        .header .epic-id {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section h2 {
+            color: #EB1000;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 900;
+            border-bottom: 3px solid #EB1000;
+            padding-bottom: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #EB1000;
+        }
+        
+        .info-item .label {
+            font-weight: 700;
+            color: #666;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .info-item .value {
+            font-size: 16px;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge.critical {
+            background: #EB1000;
+            color: white;
+        }
+        
+        .badge.done {
+            background: #0AA35B;
+            color: white;
+        }
+        
+        .badge.flagged {
+            background: #FFA31A;
+            color: white;
+        }
+        
+        .source-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .source-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .source-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .source-list li::before {
+            content: "✓";
+            color: #0AA35B;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+        
+        .description-box {
+            background: #fafafa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            font-size: 15px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+        
+        .confidence-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .confidence-indicator .icon {
+            font-size: 32px;
+        }
+        
+        .confidence-indicator .text {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: #EB1000;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #c20d00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(235, 16, 0, 0.3);
+        }
+        
+        .mode-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #3A63F9;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>EPIC Description Review</h1>
+            <div class="epic-id">STK-124663: eComm-Demand: [Video] IND Pro plus offer - unlimited core and videos (FY25-Q3)</div>
+        </div>
+        
+        <div class="content">
+            <div class="mode-badge">📝 Short Description Mode</div>
+            
+            <div class="section">
+                <h2>📊 EPIC Overview</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Status</div>
+                        <div class="value"><span class="badge done">Done</span></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Priority</div>
+                        <div class="value"><span class="badge critical">Critical</span></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Team</div>
+                        <div class="value">Ecomm Demand</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Flagged</div>
+                        <div class="value"><span class="badge flagged">Yes</span></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Beta Date</div>
+                        <div class="value">2025-08-13</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Parent Initiative</div>
+                        <div class="value">STK-111557</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📚 Information Sources</h2>
+                <ul class="source-list">
+                    <li>Parent Initiative: STK-111557 - Unlimited plan for Stock IND customers</li>
+                    <li>GitHub PR #20316 - Unlimited Yearly plan consumption logic</li>
+                    <li>GitHub PR #20337 - Copy/link updates in merchandising</li>
+                    <li>Confluence Wiki - Unlimited Offer Runbook (monitoring & rollout)</li>
+                    <li>52 Jira Stories/Bugs/Tasks with implementation details</li>
+                    <li>Test plans and runbooks documented in wiki</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>🎯 Data Confidence</h2>
+                <div class="confidence-indicator">
+                    <div class="icon">✅</div>
+                    <div class="text">HIGH CONFIDENCE - Comprehensive information gathered from multiple authoritative sources including GitHub PRs, wiki runbooks, and detailed story descriptions.</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>✨ Proposed Description</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <p style="margin: 0; color: #6E6E6E; font-size: 14px;">Ready to copy to Jira</p>
+                    <button id="copyBtn" class="btn btn-primary" onclick="copyToClipboard()">
+                        📋 Copy Description
+                    </button>
+                </div>
+                <div class="description-box" id="descriptionContent">h2. Business Value
+
+Launch the Unlimited IND Pro offer, enabling individual customers in select markets (US, UK, CA) to access unlimited downloads of videos and standard images through a single annual subscription plan. This addresses a critical market need for professional creators who require high-volume access to both video and core assets.
+
+*Product Key:* {{/Applications/StockSubUnlimitedAnnual}}
+*Markets:* United States, United Kingdom, Canada (including French-Canadian)
+*Target Segment:* Individual Professional customers
+
+h2. Success Metrics
+
+* User adoption rate of Unlimited plan across target markets
+* Purchase completion rate through Buy Choice and Plans page flows
+* Post-purchase asset licensing volume (videos + standard images)
+* Customer retention and satisfaction with unlimited access model
+* Revenue impact compared to traditional credit pack purchases
+
+h2. Scope
+
+*Included:*
+* Offer consumption logic and checkout integration
+* Multi-market support (US, UK, CA, CA_FR) with localized pricing
+* Buy Choice modal experience with product card updates
+* Plans page merchandising and product cards
+* SEM promo page (/royalty-free/unlimited)
+* Post-purchase licensing flow for unlimited assets
+* Blue banner redirects to Plans page for target markets
+* Legal compliance (usage policy, standard images terminology)
+
+*Feature Flags:* {{isUnlimitedIndProOfferABTestEnabled}}, {{isIndProUnlimitedOfferRolloutEnabled}}
+
+h2. Context
+
+Part of parent initiative STK-111557: "Onboarding and launching the unlimited plan for Stock IND customers". Launched August 13, 2025 with ramped rollout to production. Critical business priority (flagged) supporting strategic expansion into unlimited subscription model.
+
+h2. References
+
+* [Unlimited Offer Runbook|https://wiki.corp.adobe.com/display/adobestock/Unlimited+Offer+Runbook]
+* [Ramped Rollout Plan|https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=adobestock&title=Ramped+Rollout+Plan]
+* GitHub PR #20316, #20337 (implementation details)
+* Parent Initiative: STK-111557</div>
+                <div id="copyNotification" style="display: none; margin-top: 15px; padding: 12px; background: #0AA35B; color: white; border-radius: 4px; text-align: center; font-weight: bold;">
+                    ✓ Description copied to clipboard!
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>⚠️ Next Steps</h2>
+                <div style="background: #fff3cd; border-left: 4px solid #FFA31A; padding: 20px; border-radius: 4px;">
+                    <p style="margin-bottom: 12px; font-weight: 600;">Before updating Jira:</p>
+                    <ol style="margin-left: 20px; line-height: 2;">
+                        <li>Review the proposed description above</li>
+                        <li>Verify all technical details and links are accurate</li>
+                        <li>Confirm the description meets your requirements</li>
+                        <li><strong>Provide explicit approval before I update the EPIC</strong></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const descElement = document.getElementById('descriptionContent');
+            const text = descElement.innerText;
+            
+            // Create a temporary textarea to copy the text
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // Show notification
+                const notification = document.getElementById('copyNotification');
+                notification.style.display = 'block';
+                
+                // Change button text temporarily
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Copied!';
+                btn.style.background = '#0AA35B';
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    btn.innerHTML = originalText;
+                    btn.style.background = '#EB1000';
+                }, 3000);
+                
+            } catch (err) {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy to clipboard. Please copy manually.');
+            }
+            
+            document.body.removeChild(textarea);
+        }
+    </script>
+    
+    <footer style="text-align: center; padding: 30px; color: #666; font-size: 13px; background: #f8f8f8;">
+        <p>© 2025 Adobe. All rights reserved.</p>
+        <p style="margin-top: 8px;">Generated on October 17, 2025 | Adobe Stock EPIC Description Tool</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
